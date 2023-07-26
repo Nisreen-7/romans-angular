@@ -1,0 +1,12 @@
+<div class="card h-100 p-1 mb-5">
+  <img class="card-img-top" src="{{annonce.image}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{annonce.title}}</h5>
+    <p class="card-text">{{annonce.description}}</p>
+    <p class="card-text">{{annonce.dateA}} </p>
+    <p class="card-text">{{annonce.categorie}}</p>
+    <p class="card-text">{{annonce.statueA}}</p>
+    <p class="card-text">{{annonce.utilisateur?.name}}</p>
+    <a routerLink="/single-annonce/{{annonce.id}}" class="btn btn-primary">plus detailles</a>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div *ngIf="annonce">
+  <ng-container *ngIf="!editing">
+    <h1>{{annonce.title}}</h1>
+    <img src="{{annonce.image}}">
+    <p>Description: {{annonce.description}}</p>
+    <p>Date de la publishe: {{annonce.dateA}}</p>
+    <p>Categorie: {{annonce.categorie}}</p>
+    <p>Statue: {{annonce.statueA}}</p>
+    <p>le Owner: {{annonce.utilisateur?.name}}</p>
+
+    <button (click)="editing = true" class="btn btn-warning">Edit</button>
+
+  </ng-container>
+
+  <app-form-annonce *ngIf="editing" [annonce]="annonce" (added)="updateAnnonce($event)" />
+</div>
+
+<div *ngIf="!annonce">
+  Loading...
+</div>

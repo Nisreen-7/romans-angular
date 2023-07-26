@@ -1,0 +1,53 @@
+<div class="container">
+  <form (ngSubmit)="onSubmit()">
+    <div class="mb-3 row">
+      <label for="title" class="col-sm-2 col-form-label">title</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="title" [(ngModel)]="annonce.title">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="image" class="col-sm-2 col-form-label">Image</label>
+      <div class="col-sm-10">
+        <input type="file" (change)="handleImage($event)" class="form-control" name="image">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="description" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="description" [(ngModel)]="annonce.description">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="dateA" class="col-sm-2 col-form-label">Date de l'annonce</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control" name="dateA" [(ngModel)]="annonce.dateA">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="categorie" class="col-sm-2 col-form-label">Categorie </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="categorie" [(ngModel)]="annonce.categorie">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="statueA" class="col-sm-2 col-form-label">statue de l'Annonce </label>
+      <div class="col-sm-10">
+        <select [(ngModel)]="annonce.statueA">
+          <option disabled [selected]="!annonce.statueA">Choisir le statue</option>
+          <option>dispo</option>
+          <option>pas disponible</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="user" class="col-sm-2 col-form-label">Le Owner </label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="user" [(ngModel)]="annonce.utilisateur!.name">
+      </div>
+    </div>
+
+    <button class="btn btn-info m-auto">Add new Annonce</button>
+  </form>
+</div>

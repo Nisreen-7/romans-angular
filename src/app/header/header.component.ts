@@ -14,6 +14,7 @@ export class HeaderComponent {
 
   term = '';
   results:Annonce[] = [];
+
   
   doSearch() {
     if(this.term.length < 2) {

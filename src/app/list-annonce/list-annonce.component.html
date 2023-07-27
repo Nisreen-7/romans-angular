@@ -1,9 +1,9 @@
 <div class="card h-100 p-1 mb-5">
-  <img class="card-img-top" src="{{annonce.image}}" alt="Card image cap">
+  <img class="card-img-top" src="http://localhost:8000/uploads/{{annonce.image}}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{annonce.title}}</h5>
     <p class="card-text">{{annonce.description}}</p>
-    <p class="card-text">{{annonce.dateA}} </p>
+    <p class="card-text">{{annonce.dateA |date:'dd/MM/yyyy'}} </p>
     <p class="card-text">{{annonce.categorie}}</p>
     <p class="card-text">{{annonce.statueA}}</p>
     <p class="card-text">{{annonce.utilisateur?.name}}</p>

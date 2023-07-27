@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.service.all()
+    this.service.fetchAll()
       .subscribe(data => this.list = data);
 
   }

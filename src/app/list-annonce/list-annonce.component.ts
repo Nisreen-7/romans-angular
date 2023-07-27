@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Annonce } from '../entities';
 import { AnnonceService } from '../annonce.service';
 
@@ -12,6 +12,7 @@ export class ListAnnonceComponent {
   constructor(private service:AnnonceService){}
   @Input({required:true})
   annonce: Annonce  ;
+
 
 
 }

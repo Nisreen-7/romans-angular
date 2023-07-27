@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AnnonceService } from '../annonce.service';
 import { Annonce } from '../entities';
 
@@ -10,8 +10,10 @@ import { Annonce } from '../entities';
 })
 export class SingleAnnonceComponent implements OnInit {
 
-constructor(private route: ActivatedRoute, private service: AnnonceService) { }
+constructor(private route: ActivatedRoute, private service: AnnonceService,private router: Router) { }
 editing=false;
+
+list: Annonce[]=[];
 
 annonce: Annonce = {
     image:'',
@@ -30,19 +32,21 @@ annonce: Annonce = {
 
 
   ngOnInit(): void {
-
     this.route.params.subscribe(params =>
-      this.service.one(params['id'])
+      this.service.fetchOne(params['id'])
       .subscribe(data =>this.annonce = data));
-
   }
+  
+  Delete(id:any) {
+    this.service.delete(id)
+    .subscribe(() =>{
+         this.list = this.list.filter(item => item.id != this.annonce.id);
+         this.router.navigate(['/']);
 
-  updateAnnonce(annonce: Annonce) {
-    this.service.update(annonce).subscribe(data =>{
-      this.annonce = data;
-      this.editing=false;
     });
-  }
-
-
+    }
 }
+
+
+
+

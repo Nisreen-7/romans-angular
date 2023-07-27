@@ -1,6 +1,8 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { AnnonceService } from '../annonce.service';
 import { Annonce } from '../entities';
+import { Router } from '@angular/router';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-form-annonce',
@@ -9,15 +11,17 @@ import { Annonce } from '../entities';
 })
 export class FormAnnonceComponent {
 
-  constructor(private service: AnnonceService) { }
+  constructor(private service: AnnonceService, private router: Router, private notificationService: NotificationService) { }
+  editing=false;
+
   @Input()
   annonce: Annonce = {
-    title: '', image: '', description: '', dateA: new Date, categorie: '', statueA: ''
+    title: '', image: '', description: '', dateA: new Date, categorie: '', statueA: '',
+    utilisateur: {
+      name: '', address: '', email: '', telephone: 0
+    }
   };
 
-
-  @Output()
-  added = new EventEmitter<Annonce>();
 
   handleImage(event: Event) {
     const target = event.target as HTMLInputElement;
@@ -31,7 +35,26 @@ export class FormAnnonceComponent {
   }
 
 
-  onSubmit(){
-    this.added.emit(this.annonce);
+  onSubmit() {
+    if(this.annonce.id){
+      this.service.update(this.annonce).subscribe(data =>{
+        this.annonce = data;
+        this.editing=false;
+        this.notificationService.notify('Vous avez modifier l\'annonce en success');
+        this.router.navigate(['/'])
+      });
+    }
+    else{
+      this.service.add(this.annonce).subscribe(() => {
+        this.notificationService.notify('Vous avez ajouter l\'annonce en success');
+        this.router.navigate(['/'])
+      });
+    }
+
+
   }
 }
+
+
+
+

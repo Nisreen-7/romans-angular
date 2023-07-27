@@ -9,11 +9,11 @@ export class AnnonceService {
 
   constructor(private http:HttpClient) { }
 
-  all() {
+  fetchAll() {
     return this.http.get<Annonce[]>(environment.serverUrl+'/api/annonce');
   }
 
-  one(id:number) {
+  fetchOne(id:number) {
     return this.http.get<Annonce>(environment.serverUrl+'/api/annonce/'+id);
   }
 
@@ -27,8 +27,10 @@ export class AnnonceService {
   }
 
   update(annonce:Annonce) {
-    return this.http.patch<Annonce>('http://localhost:8000/api/annonce/'+annonce.id, {...annonce, utilisateur:undefined});
+    return this.http.patch<Annonce>(environment.serverUrl+annonce.id, {...annonce, utilisateur:undefined});
   }
 
-
+  search(term:string) {
+    return this.http.get<Annonce[]>(environment.serverUrl+'/api/annonce/search/'+term)
+  }
 }

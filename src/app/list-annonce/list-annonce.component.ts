@@ -10,7 +10,8 @@ import { AnnonceService } from '../annonce.service';
 export class ListAnnonceComponent {
 
   @Input({required:true})
-  annonce: Annonce  ;
+  annonce: Annonce ;
+
 
 
 }

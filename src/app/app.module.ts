@@ -15,6 +15,8 @@ import { ListSearchComponent } from './list-search/list-search.component';
 import { UserComponent } from './user/user.component';
 import { FormUserComponent } from './form-user/form-user.component';
 import { FormDemandeComponent } from './form-demande/form-demande.component';
+import { SingleUserComponent } from './single-user/single-user.component';
+import { ListDemandeComponent } from './list-demande/list-demande.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { FormDemandeComponent } from './form-demande/form-demande.component';
     ListSearchComponent,
     UserComponent,
     FormUserComponent,
-    FormDemandeComponent
+    FormDemandeComponent,
+    SingleUserComponent,
+    ListDemandeComponent
   ],
   imports: [
     BrowserModule,

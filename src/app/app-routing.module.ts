@@ -6,6 +6,8 @@ import { SingleAnnonceComponent } from './single-annonce/single-annonce.componen
 import { FormAnnonceComponent } from './form-annonce/form-annonce.component';
 import { UserComponent } from './user/user.component';
 import { FormUserComponent } from './form-user/form-user.component';
+import { SingleUserComponent } from './single-user/single-user.component';
+import { FormDemandeComponent } from './form-demande/form-demande.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -13,10 +15,10 @@ const routes: Routes = [
 
   { path: 'form-Annonce', component: FormAnnonceComponent },
   { path: 'form-user', component: FormUserComponent },
-  { path: 'form-demande', component: FormUserComponent },
+  { path: 'form-demande', component: FormDemandeComponent },
+  { path: 'single-user/:id', component: SingleUserComponent },
 
   { path: 'single-annonce/:id', component: SingleAnnonceComponent },
-
   { path: '**', component: NotFoundComponent },
 
 

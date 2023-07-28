@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Utilisateur } from './entities';
+import { Annonce, Utilisateur } from './entities';
 import { environment } from 'src/environments/environment.development';
 import { HttpClient } from '@angular/common/http';
 
@@ -29,5 +29,8 @@ export class UserService {
 
   update(user:Utilisateur) {
     return this.http.patch<Utilisateur>(environment.serverUrl+user.id,user);
+  }
+  getAnnUser(id: number){
+    return this.http.get<Annonce[]>(environment.serverUrl+'/api/utilisateur/'+id+'/annonces');
   }
 }

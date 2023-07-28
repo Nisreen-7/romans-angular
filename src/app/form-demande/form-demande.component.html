@@ -1,1 +1,35 @@
-<p>form-demande works!</p>
+<div class="container">
+  <form (ngSubmit)="OnSubmit()">
+    <div class="mb-3 row">
+      <label for="dateDebut" class="col-sm-2 col-form-label">date Debut</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control" name="dateDebut" [(ngModel)]="demande.date_debut">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="dateRe" class="col-sm-2 col-form-label">date Retour</label>
+      <div class="col-sm-10">
+        <input type="date" class="form-control" name="dateRe" [(ngModel)]="demande.date_retour">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="statueD" class="col-sm-2 col-form-label">statue le Demande </label>
+      <div class="col-sm-10">
+        <select [(ngModel)]="demande.statueD">
+          <option disabled [selected]="!demande.statueD">Choisir le statue</option>
+          <option>En Coure</option>
+          <option>Acccepte</option>
+          <option>Refus</option>
+        </select>
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="raison" class="col-sm-2 col-form-label">raison </label>
+      <div class="col-sm-10">
+        <textarea type="text" class="form-control" name="raison" [(ngModel)]="demande.raison"></textarea>
+      </div>
+    </div>
+
+    <button class="btn btn-info m-auto">Add new Demande</button>
+  </form>
+</div>

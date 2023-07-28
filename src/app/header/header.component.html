@@ -34,6 +34,9 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/demandes">Demandes</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/form-demande">Ajoutez nouvel demande</a>
+        </li>
       </ul>
       <form class="d-flex ms-auto" (ngSubmit)="doSearch()">
         <input class="form-control me-2" type="search" placeholder="Search...." aria-label="Search" [(ngModel)]="term"
@@ -47,7 +50,5 @@
 <hr>
 
 <div *ngIf="results.length" class="row ">
-<app-list-search [results]="results" class=" col-lg-3 col-md-4 col-sm-6"></app-list-search>
+  <app-list-search [results]="results" class=" col-lg-3 col-md-4 col-sm-6"></app-list-search>
 </div>
-
-

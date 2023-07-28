@@ -1,0 +1,21 @@
+<div class="row" *ngIf="list.length >0">
+  <app-list-annonce *ngFor="let item of list" [annonce]="item" class="col-3"></app-list-annonce>
+</div>
+
+<div *ngIf="list.length === 0">
+  <p>Aucune annonce trouvée.</p>
+</div>
+
+<div class="row" *ngIf="listDemande.length >0">
+  <app-list-demande *ngFor="let item of listDemande" [demande]="item" class="col-3"></app-list-demande>
+</div>
+
+<div *ngIf="listDemande.length === 0">
+  <p>Aucune demande trouvée.</p>
+</div>
+
+
+
+
+<button (click)="retour()" class="btn btn-primary">Retour a la page d'Accueil</button>
+

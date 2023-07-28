@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { AnnonceService } from '../annonce.service';
 import { Annonce } from '../entities';
 
@@ -11,16 +11,17 @@ export class HeaderComponent {
   constructor(public service : AnnonceService){}
 
   logo="https://img.freepik.com/vecteurs-premium/colombe-blanche-volant-branche-dans-son-bec_646794-19.jpg";
-
   term = '';
+  @Output()
   results:Annonce[] = [];
 
-  
+
   doSearch() {
     if(this.term.length < 2) {
       this.results = [];
     } else{
-      this.service.search(this.term).subscribe(data => this.results = data);
+      this.service.search(this.term).
+      subscribe(data => this.results = data)
 
     }
   }

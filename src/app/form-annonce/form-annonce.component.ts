@@ -35,7 +35,7 @@ export class FormAnnonceComponent {
   }
 
 
-  onSubmit() {
+  OnSubmit() {
     if(this.annonce.id){
       this.service.update(this.annonce).subscribe(data =>{
         this.annonce = data;

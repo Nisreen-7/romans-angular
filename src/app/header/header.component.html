@@ -1,9 +1,9 @@
-<div class="header row">
+<div class="header">
   <div class="col-12">
 
     <img [src]=logo alt="">
     <marquee>
-      <p>Partage Votre Romans</p>
+      <p>Partagez Vos Romans</p>
     </marquee>
   </div>
 </div>
@@ -25,23 +25,29 @@
         <li class="nav-item">
           <a class="nav-link" routerLink="/form-Annonce">Ajoutez nouvel Annonce</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Choisir par Categories
-          </a>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/user">Users</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/form-user">Ajoutez nouvel user</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/demandes">Demandes</a>
         </li>
       </ul>
-      <form class="d-flex ms-auto">
+      <form class="d-flex ms-auto" (ngSubmit)="doSearch()">
         <input class="form-control me-2" type="search" placeholder="Search...." aria-label="Search" [(ngModel)]="term"
-          (keyup)="doSearch()">
+          name="term">
         <button class="btn btn-outline-success" type="submit"> Search </button>
-        <ul *ngIf="results.length">
-          <li *ngFor="let item of results">{{item.title}}</li>
-        </ul>
       </form>
 
     </div>
   </div>
 </nav>
 <hr>
+
+<div *ngIf="results.length" class="row ">
+<app-list-search [results]="results" class=" col-lg-3 col-md-4 col-sm-6"></app-list-search>
+</div>
+
+

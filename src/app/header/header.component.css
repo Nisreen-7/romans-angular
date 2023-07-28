@@ -5,8 +5,28 @@
     border-radius: 60%;
   }
   marquee{
-    color: blue;
+    color: #587BF3;
     font-family: 'Dancing Script', cursive;
     font-size: 48px;
     text-shadow: 4px 4px 4px #aaa;
   }
+
+
+  form ul {
+    position: absolute;
+    background-color: white;
+    border: 1px solid gray;
+    width:20%;
+    offset-position: right;
+}
+
+
+form li {
+    text-indent: 20px;
+    list-style-type: none;
+    width:20%;
+}
+form li:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+

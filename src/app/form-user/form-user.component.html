@@ -1,0 +1,32 @@
+<div class="container">
+  <form (ngSubmit)="handSubmit()">
+    <div class="mb-3 row">
+      <label for="name" class="col-sm-2 col-form-label">Name :</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="name" [(ngModel)]="user.name">
+      </div>
+    </div>
+    <div class="mb-3 row">
+      <label for="address" class="col-sm-2 col-form-label">Address :</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" name="address" [(ngModel)]="user.address">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="email" class="col-sm-2 col-form-label">Email :</label>
+      <div class="col-sm-10">
+        <input type="email" class="form-control" name="email" [(ngModel)]="user.email">
+      </div>
+    </div>
+
+    <div class="mb-3 row">
+      <label for="telephone" class="col-sm-2 col-form-label">Telephone :</label>
+      <div class="col-sm-10">
+        <input type="number" class="form-control" name="telephone" [(ngModel)]="user.telephone">
+      </div>
+    </div>
+
+    <button class="btn btn-info m-auto">Add Nouvel User</button>
+  </form>
+</div>

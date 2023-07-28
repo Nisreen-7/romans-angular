@@ -9,10 +9,8 @@ import { AnnonceService } from '../annonce.service';
 })
 export class ListAnnonceComponent {
 
-  constructor(private service:AnnonceService){}
   @Input({required:true})
   annonce: Annonce  ;
-
 
 
 }

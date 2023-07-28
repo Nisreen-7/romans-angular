@@ -1,0 +1,14 @@
+  <h3>Les resultats de votre recherche :</h3>
+
+<div class="card" *ngFor="let item of results">
+  <img class="card-img-top" src="http://localhost:8000/uploads/{{item.image}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{item.title}}</h5>
+    <p class="card-text">{{item.description}}</p>
+    <p class="card-text">{{item.dateA |date:'dd/MM/yyyy'}} </p>
+    <p class="card-text">{{item.categorie}}</p>
+    <p class="card-text">{{item.statueA}}</p>
+    <p class="card-text">{{item.utilisateur?.name}}</p>
+    <button (click)="retour()" class="btn btn-primary"> Retour </button>
+  </div>
+</div>
